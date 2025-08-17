@@ -128,6 +128,9 @@
   <ItemGroup>
     <ClCompile Include="nexus.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="print_help.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
