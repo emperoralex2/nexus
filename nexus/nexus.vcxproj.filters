@@ -32,5 +32,11 @@
     <ClInclude Include="install.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="unzip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="install_package.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

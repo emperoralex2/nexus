@@ -132,7 +132,9 @@
     <ClInclude Include="add_to_path.h" />
     <ClInclude Include="check_nexus_path.h" />
     <ClInclude Include="install.h" />
+    <ClInclude Include="install_package.h" />
     <ClInclude Include="print_help.h" />
+    <ClInclude Include="unzip.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

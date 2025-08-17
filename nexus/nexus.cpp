@@ -2,13 +2,16 @@
 #include <windows.h>
 #include <filesystem>
 #include <vector>
+#include <string>
 #include <urlmon.h>
 #include <winternl.h>
 #include <cstdlib>
 #include "print_help.h"
 #include "check_nexus_path.h"
 #include "install.h"
+#include "unzip.h"
 #include "add_to_path.h"
+#include "install_package.h"
 #pragma comment(lib, "ntdll.lib")
 #pragma comment(lib,"urlmon.lib")
 
@@ -25,7 +28,7 @@ struct pkg {
 };
 
 std::vector<pkg> pkgs = {
-	{L"firefox",L"https://github.com/dpadGuy/UwUToolsSoftware/releases/download/Files/MozillaFirefox.zip",L"C:\\Nexus\\pkgs\\firefox",L"firefox.zip",L"C:\\Nexus\\pkgs\\firefox\\MozillaFirefox\\Mozilla Firefox\\firefox.exe"},
+	{L"firefox",L"https://github.com/dpadGuy/UwUToolsSoftware/releases/download/Files/MozillaFirefox.zip",L"C:\\Nexus\\pkgs\\firefox",L"firefox.zip",L"C:\\Nexus\\pkgs\\firefox\\Mozilla Firefox"},
 };
 
 int wmain(int argc, wchar_t* argv[]) {
@@ -69,14 +72,20 @@ int wmain(int argc, wchar_t* argv[]) {
 			for (int i = 0; i < pkgs.size(); i++) {
 				if (_wcsicmp(pkgs[i].name,argv[2]) == 0) {
 					is_found = true;
+					if (install_package(pkgs[i].name, pkgs[i].url_download, pkgs[i].program_dir, pkgs[i].zip_name, pkgs[i].exe_path)) {
+						std::wcout << L"Successfully installed package!";
+					}
+					else {
+						std::wcout << L"Errored";
+					}
 					break;
 				}
 				else {
 					is_found = false;
 				}
 			}
-			if (is_found) {
-
+			if (!is_found) {
+				std::wcout << L"Package not found";
 			}
 		}
 		else if (wcscmp(argv[1], L"uninstall") == 0)
