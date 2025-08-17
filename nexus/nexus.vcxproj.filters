@@ -23,5 +23,11 @@
     <ClInclude Include="print_help.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="add_to_path.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="check_nexus_path.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
