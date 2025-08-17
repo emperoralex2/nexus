@@ -29,5 +29,8 @@
     <ClInclude Include="check_nexus_path.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="install.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
