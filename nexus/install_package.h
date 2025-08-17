@@ -5,7 +5,7 @@ extern bool check_file(const wchar_t* path);
 bool install_package(const wchar_t* name,const wchar_t* url, const wchar_t* program_dir, const wchar_t* zip_name, const wchar_t* exe_path) {
 
 	if (check_file(program_dir)) {
-		std::wcout << L"The package " << name << L" is already installed";
+		std::wcout << L"The package " << name << L" is already installed\n";
 		return false;
 	}
 	else {
