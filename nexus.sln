@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nexus", "nexus\nexus.vcxproj", "{A59CB5AD-A7C2-42ED-9F7C-1FD9831A2625}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A59CB5AD-A7C2-42ED-9F7C-1FD9831A2625}.Debug|x64.ActiveCfg = Debug|x64
+		{A59CB5AD-A7C2-42ED-9F7C-1FD9831A2625}.Debug|x64.Build.0 = Debug|x64
+		{A59CB5AD-A7C2-42ED-9F7C-1FD9831A2625}.Debug|x86.ActiveCfg = Debug|Win32
+		{A59CB5AD-A7C2-42ED-9F7C-1FD9831A2625}.Debug|x86.Build.0 = Debug|Win32
+		{A59CB5AD-A7C2-42ED-9F7C-1FD9831A2625}.Release|x64.ActiveCfg = Release|x64
+		{A59CB5AD-A7C2-42ED-9F7C-1FD9831A2625}.Release|x64.Build.0 = Release|x64
+		{A59CB5AD-A7C2-42ED-9F7C-1FD9831A2625}.Release|x86.ActiveCfg = Release|Win32
+		{A59CB5AD-A7C2-42ED-9F7C-1FD9831A2625}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9D75D406-2C3D-47BB-8C0D-8D413A4B8EEC}
+	EndGlobalSection
+EndGlobal
