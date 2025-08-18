@@ -66,9 +66,8 @@ int wmain(int argc, wchar_t* argv[]) {
 	else if (argc == 2) {
 		if (wcscmp(argv[1], L"update") == 0) {
 			if (check_file(L"C:\\Nexus\\bin\\nexus_updater.exe")) {
-				STARTUPINFO si;
-				PROCESS_INFORMATION pi;
-				CreateProcessW(L"C:\\Nexus\\bin\\nexus_updater.exe", NULL, NULL, NULL, TRUE, 0, NULL, NULL, &si, &pi);
+				std::wcout << L"\n";
+				WinExec("C:\\Nexus\\bin\\nexus_updater.exe", SW_SHOW);
 				return 0;
 			}
 			else {
