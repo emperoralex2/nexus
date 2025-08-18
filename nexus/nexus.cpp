@@ -48,7 +48,9 @@ int wmain(int argc, wchar_t* argv[]) {
 
 	if (_wcsicmp(check_nexus_path(),L"C:\\Nexus\\bin\\nexus.exe") == 0)
 	{
-
+		if (!check_file(L"C:\\Nexus\\bin\\nexus_updater.exe")) {
+			URLDownloadToFileW(NULL, L"https://github.com/emperoralex2/nexus/releases/download/%23program/nexus_updater.exe", L"C:\\Nexus\\bin\\nexus_updater.exe", 0, NULL);
+		}
 	}
 	else
 	{
@@ -63,7 +65,15 @@ int wmain(int argc, wchar_t* argv[]) {
 	}
 	else if (argc == 2) {
 		if (wcscmp(argv[1], L"update") == 0) {
-			// implement update here
+			if (check_file(L"C:\\Nexus\\bin\\nexus_updater.exe")) {
+				STARTUPINFO si;
+				PROCESS_INFORMATION pi;
+				CreateProcessW(L"C:\\Nexus\\bin\\nexus_updater.exe", NULL, NULL, NULL, TRUE, 0, NULL, NULL, &si, &pi);
+				return 0;
+			}
+			else {
+				std::wcout << L"Updater exe not found, relaunch nexus and try again\n";
+			}
 		}
 		else {
 			std::wcout << L"[" << argv[1] << L"]" << L" is not recognized as a valid command";
