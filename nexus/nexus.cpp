@@ -12,6 +12,7 @@
 #include "unzip.h"
 #include "add_to_path.h"
 #include "install_package.h"
+#include "uninstall_package.h"
 #pragma comment(lib, "ntdll.lib")
 #pragma comment(lib,"urlmon.lib")
 
@@ -25,10 +26,13 @@ struct pkg {
 	const wchar_t* program_dir;
 	const wchar_t* zip_name;
 	const wchar_t* exe_path;
+	const wchar_t* bat_path;
 };
 
 std::vector<pkg> pkgs = {
-	{L"firefox",L"https://github.com/dpadGuy/UwUToolsSoftware/releases/download/Files/MozillaFirefox.zip",L"C:\\Nexus\\pkgs\\firefox",L"firefox.zip",L"C:\\Nexus\\pkgs\\firefox\\Mozilla Firefox"},
+	{L"firefox",L"https://github.com/dpadGuy/UwUToolsSoftware/releases/download/Files/MozillaFirefox.zip",L"C:\\Nexus\\pkgs\\firefox",L"firefox.zip",L"C:\\Nexus\\pkgs\\firefox\\Mozilla Firefox\\firefox.exe", L"C:\\Nexus\\bin\\firefox.bat"},
+	{L"sysinformer", L"https://github.com/dpadGuy/UwUToolsSoftware/releases/download/Files/SystemInformer.zip",L"C:\\Nexus\\pkgs\\sysinformer",L"sysinformer.zip",L"C:\\Nexus\\pkgs\\sysinformer\\amd64\\systeminformer.exe", L"C:\\Nexus\\bin\\sysinformer.bat"},
+
 };
 
 int wmain(int argc, wchar_t* argv[]) {
@@ -72,7 +76,7 @@ int wmain(int argc, wchar_t* argv[]) {
 			for (int i = 0; i < pkgs.size(); i++) {
 				if (_wcsicmp(pkgs[i].name,argv[2]) == 0) {
 					is_found = true;
-					if (install_package(pkgs[i].name, pkgs[i].url_download, pkgs[i].program_dir, pkgs[i].zip_name, pkgs[i].exe_path)) {
+					if (install_package(pkgs[i].name, pkgs[i].url_download, pkgs[i].program_dir, pkgs[i].zip_name, pkgs[i].exe_path,pkgs[i].bat_path)) {
 						std::wcout << L"Successfully installed package!";
 					}
 					else {
@@ -90,7 +94,26 @@ int wmain(int argc, wchar_t* argv[]) {
 		}
 		else if (wcscmp(argv[1], L"uninstall") == 0)
 		{
-			std::wcout << L"you uninstalled";
+			bool is_found = false;
+			for (int i = 0; i < pkgs.size(); i++) {
+				if (_wcsicmp(pkgs[i].name, argv[2]) == 0) 
+				{
+					is_found = true;
+					if (uninstall_package(pkgs[i].name, pkgs[i].url_download, pkgs[i].program_dir, pkgs[i].zip_name, pkgs[i].exe_path, pkgs[i].bat_path)) {
+						break;
+					}
+					else {
+						is_found = false;
+					}
+				}
+				else
+				{
+					is_found = false;
+				}
+			}
+			if (!is_found) {
+				std::wcout << L"Target package not found";
+			}
 		}
 		else {
 			std::wcout << L"[" << argv[1] << L"]" << L" is not recognized as a valid command";
