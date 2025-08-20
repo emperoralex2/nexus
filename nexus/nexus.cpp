@@ -6,6 +6,7 @@
 #include <urlmon.h>
 #include <winternl.h>
 #include <cstdlib>
+#include <string>
 #include "print_help.h"
 #include "check_nexus_path.h"
 #include "install.h"
