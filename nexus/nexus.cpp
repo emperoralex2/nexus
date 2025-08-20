@@ -32,7 +32,8 @@ struct pkg {
 std::vector<pkg> pkgs = {
 	{L"firefox",L"https://github.com/dpadGuy/UwUToolsSoftware/releases/download/Files/MozillaFirefox.zip",L"C:\\Nexus\\pkgs\\firefox",L"firefox.zip",L"C:\\Nexus\\pkgs\\firefox\\Mozilla Firefox\\firefox.exe", L"C:\\Nexus\\bin\\firefox.bat"},
 	{L"sysinformer", L"https://github.com/dpadGuy/UwUToolsSoftware/releases/download/Files/SystemInformer.zip",L"C:\\Nexus\\pkgs\\sysinformer",L"sysinformer.zip",L"C:\\Nexus\\pkgs\\sysinformer\\amd64\\systeminformer.exe", L"C:\\Nexus\\bin\\sysinformer.bat"},
-
+	{L"primeshell",L"https://github.com/emperoralex2/nexus/releases/download/%23program/PrimeShell.zip",L"C:\\Nexus\\pkgs\\primeshell",L"primeshell.zip",L"C:\\Nexus\\pkgs\\primeshell\\PrimeShell\\PrimeShell.exe",L"C:\\Nexus\\bin\\primeshell.bat"},
+	{L"explorer++",L"https://github.com/emperoralex2/nexus/releases/download/%23program/explorerpp.zip",L"C:\\Nexus\\pkgs\\explorerpp",L"explorerpp.zip",L"C:\\Nexus\\pkgs\\explorerpp\\explorerpp\\Explorer++.exe",L"C:\\Nexus\\bin\\explorer++.bat"},
 };
 
 int wmain(int argc, wchar_t* argv[]) {
@@ -72,6 +73,11 @@ int wmain(int argc, wchar_t* argv[]) {
 			}
 			else {
 				std::wcout << L"Updater exe not found, relaunch nexus and try again\n";
+			}
+		}
+		else if (wcscmp(argv[1], L"list") == 0) {
+			for (int i = 0; i < pkgs.size(); i++) {
+				std::wcout << pkgs[i].name << std::endl;
 			}
 		}
 		else {
